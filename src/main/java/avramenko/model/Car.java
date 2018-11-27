@@ -1,4 +1,4 @@
-package main.java.avramenko;
+package main.java.avramenko.model;
 
 public class Car {
 

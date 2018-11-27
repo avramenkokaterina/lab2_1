@@ -1,4 +1,4 @@
-package main.java.avramenko;
+package main.java.avramenko.view;
 
 public enum Activities {
     SHOW_MAIN_MENU,

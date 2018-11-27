@@ -1,4 +1,4 @@
-package main.java.avramenko;
+package main.java.avramenko.model;
 
 import java.util.Arrays;
 
@@ -9,7 +9,7 @@ public class Model {
     private final int initialLength = 10;
     private int currentLength = 0;
 
-    Model() {
+    public Model() {
         length = initialLength;
         Car[] cars = new Car[length];
     }

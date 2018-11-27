@@ -1,25 +1,31 @@
-package main.java.avramenko;
+package main.java.avramenko.view;
+
+import main.java.avramenko.model.Car;
 
 import java.util.Scanner;
 
 public class View {
 
+    private Scanner sc;
+
     public void menu() {
         System.out.println("1. Generate car list");
         System.out.println("2. Create car list");
         System.out.println("3. Exit");
+        printMessage(Messages.CHOOSE);
     }
 
-    public void subMenu(){
+    public void subMenu() {
         System.out.println("1. Get list of cars of my brand");
         System.out.println("2. Get list of cars of my model which are used for more than N years");
         System.out.println("3. Get list of cars of my year that cost for more my price");
         System.out.println("4. Return to menu");
         System.out.println("5. Exit");
+        printMessage(Messages.CHOOSE);
     }
 
-    public void printMessage(Messages messages){
-        switch(messages){
+    public void printMessage(Messages messages) {
+        switch (messages) {
             case CHOOSE:
                 System.out.println("Choose number: ");
                 break;
@@ -59,52 +65,33 @@ public class View {
             case ENTER_YEARS_LONG:
                 System.out.println("Enter number of years: ");
                 break;
+            case NO_RESULTS:
+                System.out.println("No results.");
+                break;
             default:
                 break;
         }
     }
 
-    public int readNumber(int param) {
-        int n;
+    public int readNumber() {
+        int n = 0;
         Scanner sc = new Scanner(System.in);
         do {
             while (!sc.hasNextInt()) {
-                switch (param) {
-                    case 1:
-                        System.out.println("Not a number. Please, choose number from 1 to 3.");
-                        sc.next();
-                        break;
-                    case 2:
-                        System.out.println("Not a number. Please, choose number from 1 to 5.");
-                        sc.next();
-                        break;
-                    case 3:
-                        System.out.println("Not a number. Please, choose number from 1 to 10.");
-                        sc.next();
-                        break;
-                    case 4:
-                        System.out.println("Not a year. Please, choose year from 1918 to 2018.");
-                        sc.next();
-                        break;
-                    case 5:
-                        System.out.println("Not a number. Please, enter price from 0 to 1000000000.");
-                        sc.next();
-                        break;
-                    default:
-                        break;
-                }
+                System.out.println("Not a number.");
+                sc.next();
             }
             n = sc.nextInt();
         } while (n < 0);
         return n;
     }
 
+
     public String readString() {
-        Scanner sc = new Scanner(System.in);
-        String string = new String(sc.nextLine());
+        Scanner scan = new Scanner(System.in);
+        String string = new String(scan.nextLine());
         return string;
     }
-
 
     public void printCar(Car[] cars) {
         System.out.println(" Identification Number |      Brand      |    Model    |  Year  |  Color  |  Number  |   Price, $   ");
